@@ -1,0 +1,257 @@
+openapi: 3.0.3
+info:
+  title: Pulsoid API
+  description: >-
+    Pulsoid enables real-time heart rate data transmission from peripherals (BLE
+    heart rate monitors, smartwatches, etc.) to clients. The Pulsoid REST API
+    provides endpoints to read and submit heart rate data, manage widgets,
+    profile, and validate tokens. Real-time streaming is available via
+    WebSocket endpoints.
+  version: "1.0"
+  contact:
+    name: Pulsoid Support
+    url: https://docs.pulsoid.net/
+servers:
+  - url: https://dev.pulsoid.net
+    description: Pulsoid API
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: OAuth2
+    OAuth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://pulsoid.net/oauth2/authorize
+          scopes:
+            data:heart_rate:read: Read heart rate data
+            data:heart_rate:write: Write heart rate data
+            data:statistics:read: Read heart rate statistics
+            data:room:read: Read room real-time data
+            widgets:read: Read widgets
+            widgets:update: Create or update widgets
+            profile:read: Read profile
+            geometry_dash_mod:configuration:read: Read GD mod config
+            geometry_dash_mod:configuration:write: Update GD mod config
+        authorizationCode:
+          authorizationUrl: https://pulsoid.net/oauth2/authorize
+          tokenUrl: https://pulsoid.net/oauth2/token
+          scopes:
+            data:heart_rate:read: Read heart rate data
+            data:heart_rate:write: Write heart rate data
+            data:statistics:read: Read heart rate statistics
+            widgets:read: Read widgets
+            widgets:update: Create or update widgets
+            profile:read: Read profile
+security:
+  - BearerAuth: []
+paths:
+  /api/v1/token/validate:
+    get:
+      summary: Validate authorization token
+      description: Validates the provided OAuth2 access token and returns token metadata.
+      operationId: validateToken
+      tags: [Token]
+      responses:
+        "200":
+          description: Token is valid
+        "401":
+          description: Invalid or missing token
+  /api/v1/data/heart_rate/latest:
+    get:
+      summary: Get latest heart rate
+      description: Retrieves the latest heart rate measurement for the authenticated user.
+      operationId: getLatestHeartRate
+      tags: [Heart Rate]
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Latest heart rate
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  measured_at:
+                    type: integer
+                    format: int64
+                    description: Unix timestamp (ms)
+                  data:
+                    type: object
+                    properties:
+                      heart_rate:
+                        type: integer
+        "401":
+          description: Unauthorized
+  /api/v1/data:
+    post:
+      summary: Submit heart rate data
+      description: Submits heart rate data points (write scope required).
+      operationId: submitHeartRate
+      tags: [Heart Rate]
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                heart_rate:
+                  type: integer
+                measured_at:
+                  type: integer
+                  format: int64
+      responses:
+        "200":
+          description: Submitted
+        "401":
+          description: Unauthorized
+  /api/v1/statistics:
+    get:
+      summary: Read heart rate statistics
+      description: Returns aggregated BPM statistics over 24h, 7d, and 30d windows.
+      operationId: getStatistics
+      tags: [Statistics]
+      responses:
+        "200":
+          description: Statistics
+        "401":
+          description: Unauthorized
+  /api/v1/widgets:
+    get:
+      summary: List widgets
+      description: Retrieves widgets owned by the authenticated user.
+      operationId: listWidgets
+      tags: [Widgets]
+      responses:
+        "200":
+          description: List of widgets
+    post:
+      summary: Create widget
+      description: Creates a new widget.
+      operationId: createWidget
+      tags: [Widgets]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Widget created
+  /api/v1/widgets/{widgetId}:
+    post:
+      summary: Update widget configuration
+      description: Updates configuration for an existing widget.
+      operationId: updateWidget
+      tags: [Widgets]
+      parameters:
+        - in: path
+          name: widgetId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Updated
+  /api/v1/profile:
+    get:
+      summary: Read user profile
+      description: Returns the authenticated user's profile information.
+      operationId: getProfile
+      tags: [Profile]
+      responses:
+        "200":
+          description: Profile
+  /api/v1/geometry-dash-mod/configuration:
+    get:
+      summary: Get GD mod configuration
+      operationId: getGdConfig
+      tags: [Geometry Dash]
+      responses:
+        "200":
+          description: Configuration
+    post:
+      summary: Update GD mod configuration
+      operationId: updateGdConfig
+      tags: [Geometry Dash]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Updated
+  /api/v1/features/{featureId}:
+    get:
+      summary: Check feature availability
+      operationId: getFeature
+      tags: [Features]
+      parameters:
+        - in: path
+          name: featureId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Feature info
+  /oauth2/authorize:
+    post:
+      summary: OAuth2 authorize
+      operationId: oauthAuthorize
+      tags: [OAuth2]
+      security: []
+      responses:
+        "200":
+          description: OK
+  /oauth2/token:
+    post:
+      summary: OAuth2 token exchange/refresh
+      operationId: oauthToken
+      tags: [OAuth2]
+      security: []
+      responses:
+        "200":
+          description: Token issued
+  /oauth2/device_authorization:
+    post:
+      summary: OAuth2 device authorization
+      operationId: oauthDeviceAuthorization
+      tags: [OAuth2]
+      security: []
+      responses:
+        "200":
+          description: Device code issued
+  /oauth2/revoke:
+    post:
+      summary: Revoke access token
+      operationId: oauthRevoke
+      tags: [OAuth2]
+      security: []
+      responses:
+        "200":
+          description: Revoked
+tags:
+  - name: Token
+  - name: Heart Rate
+  - name: Statistics
+  - name: Widgets
+  - name: Profile
+  - name: Geometry Dash
+  - name: Features
+  - name: OAuth2
