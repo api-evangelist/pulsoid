@@ -49,7 +49,7 @@ common:
     url: https://pulsoid.net/
   - type: Documentation
     url: https://docs.pulsoid.net/
-  - type: Sign Up
+  - type: SignUp
     url: https://pulsoid.net/auth/sign_up
   - type: Login
     url: https://pulsoid.net/auth/sign_in
@@ -57,7 +57,7 @@ common:
     url: https://docs.pulsoid.net/access-token-and-authentication/about-access-token
   - type: OAuth
     url: https://docs.pulsoid.net/access-token-and-authentication/oauth-authorization-code-grant
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/Pulsoid
 maintainers:
   - FN: Kin Lane
