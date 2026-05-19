@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulsoid API — Profile
+  description: 'Pulsoid API — Profile. 1 operations. Lead operation: Read user profile. Self-contained Naftiko capability
+    covering one Pulsoid business surface.'
+  tags:
+  - Pulsoid
+  - Profile
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSOID_API_KEY: PULSOID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulsoid-profile
+    baseUri: https://dev.pulsoid.net
+    description: Pulsoid API — Profile business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-profile
+      path: /api/v1/profile
+      operations:
+      - name: getprofile
+        method: GET
+        description: Read user profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PULSOID_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: pulsoid-profile-rest
+    port: 8080
+    description: REST adapter for Pulsoid API — Profile. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v1/profile
+      name: api-v1-profile
+      description: REST surface for api-v1-profile.
+      operations:
+      - method: GET
+        name: getprofile
+        description: Read user profile
+        call: pulsoid-profile.getprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulsoid-profile-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulsoid API — Profile. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: read-user-profile
+      description: Read user profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulsoid-profile.getprofile
+      outputParameters:
+      - type: object
+        mapping: $.

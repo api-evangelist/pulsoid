@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulsoid API — Features
+  description: 'Pulsoid API — Features. 1 operations. Lead operation: Check feature availability. Self-contained Naftiko capability
+    covering one Pulsoid business surface.'
+  tags:
+  - Pulsoid
+  - Features
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSOID_API_KEY: PULSOID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulsoid-features
+    baseUri: https://dev.pulsoid.net
+    description: Pulsoid API — Features business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-features-featureId
+      path: /api/v1/features/{featureId}
+      operations:
+      - name: getfeature
+        method: GET
+        description: Check feature availability
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: featureId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.PULSOID_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: pulsoid-features-rest
+    port: 8080
+    description: REST adapter for Pulsoid API — Features. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v1/features/{featureid}
+      name: api-v1-features-featureid
+      description: REST surface for api-v1-features-featureId.
+      operations:
+      - method: GET
+        name: getfeature
+        description: Check feature availability
+        call: pulsoid-features.getfeature
+        with:
+          featureId: rest.featureId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulsoid-features-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulsoid API — Features. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: check-feature-availability
+      description: Check feature availability
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulsoid-features.getfeature
+      with:
+        featureId: tools.featureId
+      outputParameters:
+      - type: object
+        mapping: $.

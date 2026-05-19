@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulsoid API — Heart Rate
+  description: 'Pulsoid API — Heart Rate. 2 operations. Lead operation: Submit heart rate data. Self-contained Naftiko capability
+    covering one Pulsoid business surface.'
+  tags:
+  - Pulsoid
+  - Heart Rate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSOID_API_KEY: PULSOID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulsoid-heart-rate
+    baseUri: https://dev.pulsoid.net
+    description: Pulsoid API — Heart Rate business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-data
+      path: /api/v1/data
+      operations:
+      - name: submitheartrate
+        method: POST
+        description: Submit heart rate data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-data-heart_rate-latest
+      path: /api/v1/data/heart_rate/latest
+      operations:
+      - name: getlatestheartrate
+        method: GET
+        description: Get latest heart rate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PULSOID_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: pulsoid-heart-rate-rest
+    port: 8080
+    description: REST adapter for Pulsoid API — Heart Rate. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v1/data
+      name: api-v1-data
+      description: REST surface for api-v1-data.
+      operations:
+      - method: POST
+        name: submitheartrate
+        description: Submit heart rate data
+        call: pulsoid-heart-rate.submitheartrate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/data/heart-rate/latest
+      name: api-v1-data-heart-rate-latest
+      description: REST surface for api-v1-data-heart_rate-latest.
+      operations:
+      - method: GET
+        name: getlatestheartrate
+        description: Get latest heart rate
+        call: pulsoid-heart-rate.getlatestheartrate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulsoid-heart-rate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulsoid API — Heart Rate. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: submit-heart-rate-data
+      description: Submit heart rate data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pulsoid-heart-rate.submitheartrate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-latest-heart-rate
+      description: Get latest heart rate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulsoid-heart-rate.getlatestheartrate
+      outputParameters:
+      - type: object
+        mapping: $.
