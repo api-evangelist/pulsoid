@@ -70,6 +70,8 @@ common:
   url: https://docs.pulsoid.net/access-token-and-authentication/oauth-authorization-code-grant
 - type: GitHubOrganization
   url: https://github.com/Pulsoid
+- type: LLMsTxt
+  url: https://docs.pulsoid.net/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
