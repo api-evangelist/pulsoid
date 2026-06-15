@@ -1,0 +1,283 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulsoid API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate authorization token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/token/validate"
+          },
+          "docs": "Validates the provided OAuth2 access token and returns token metadata."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Heart Rate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get latest heart rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/data/heart_rate/latest",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the latest heart rate measurement for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Submit heart rate data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submits heart rate data points (write scope required)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read heart rate statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/statistics"
+          },
+          "docs": "Returns aggregated BPM statistics over 24h, 7d, and 30d windows."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Widgets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List widgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/widgets"
+          },
+          "docs": "Retrieves widgets owned by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Create widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/widgets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new widget."
+        },
+        {
+          "info": {
+            "name": "Update widget configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/widgets/:widgetId",
+            "params": [
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates configuration for an existing widget."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/profile"
+          },
+          "docs": "Returns the authenticated user's profile information."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Geometry Dash",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get GD mod configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/geometry-dash-mod/configuration"
+          },
+          "docs": "Get GD mod configuration"
+        },
+        {
+          "info": {
+            "name": "Update GD mod configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/geometry-dash-mod/configuration",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update GD mod configuration"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Features",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check feature availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/features/:featureId",
+            "params": [
+              {
+                "name": "featureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check feature availability"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OAuth2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OAuth2 authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/authorize"
+          },
+          "docs": "OAuth2 authorize"
+        },
+        {
+          "info": {
+            "name": "OAuth2 token exchange/refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/token"
+          },
+          "docs": "OAuth2 token exchange/refresh"
+        },
+        {
+          "info": {
+            "name": "OAuth2 device authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/device_authorization"
+          },
+          "docs": "OAuth2 device authorization"
+        },
+        {
+          "info": {
+            "name": "Revoke access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/revoke"
+          },
+          "docs": "Revoke access token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
