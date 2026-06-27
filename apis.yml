@@ -47,7 +47,7 @@ common:
     url: https://pulsoid.net/
   - type: Documentation
     url: https://docs.pulsoid.net/
-  - type: SignUp
+  - type: Signup
     url: https://pulsoid.net/auth/sign_up
   - type: Login
     url: https://pulsoid.net/auth/sign_in
@@ -57,7 +57,7 @@ common:
     url: https://docs.pulsoid.net/access-token-and-authentication/oauth-authorization-code-grant
   - type: GitHubOrganization
     url: https://github.com/Pulsoid
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.pulsoid.net/llms.txt
 maintainers:
   - FN: Kin Lane
