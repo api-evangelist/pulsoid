@@ -1,0 +1,27 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: pulsoid.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 04:38:57 2026 GMT
+  hsts: false
+- host: docs.pulsoid.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 19 17:29:23 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: dev.pulsoid.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 14 20:58:57 2026 GMT
+  hsts: false
+domains:
+- domain: pulsoid.net
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: none

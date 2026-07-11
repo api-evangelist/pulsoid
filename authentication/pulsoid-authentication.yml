@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/pulsoid-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - implicit
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: OAuth2
+  sources:
+  - openapi/pulsoid-openapi.yml
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://pulsoid.net/oauth2/authorize
+    scopes: 9
+  - flow: authorizationCode
+    authorizationUrl: https://pulsoid.net/oauth2/authorize
+    tokenUrl: https://pulsoid.net/oauth2/token
+    scopes: 6
+  sources:
+  - openapi/pulsoid-openapi.yml
