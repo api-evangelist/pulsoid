@@ -1,0 +1,73 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/pulsoid-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/pulsoid-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://pulsoid.net/oauth2/authorize
+  - flow: authorizationCode
+    authorizationUrl: https://pulsoid.net/oauth2/authorize
+    tokenUrl: https://pulsoid.net/oauth2/token
+scopes:
+- scope: data:heart_rate:read
+  description: Read heart rate data
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: data:heart_rate:write
+  description: Write heart rate data
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: data:room:read
+  description: Read room real-time data
+  flows:
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: data:statistics:read
+  description: Read heart rate statistics
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: geometry_dash_mod:configuration:read
+  description: Read GD mod config
+  flows:
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: geometry_dash_mod:configuration:write
+  description: Update GD mod config
+  flows:
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: profile:read
+  description: Read profile
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: widgets:read
+  description: Read widgets
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml
+- scope: widgets:update
+  description: Create or update widgets
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - openapi/pulsoid-openapi.yml

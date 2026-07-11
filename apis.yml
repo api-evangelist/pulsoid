@@ -41,6 +41,10 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/openapi/pulsoid-openapi.yml
 common:
+  - type: Authentication
+    url: authentication/pulsoid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/pulsoid-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/pulsoid
   - type: Website
