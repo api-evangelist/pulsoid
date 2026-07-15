@@ -41,6 +41,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/openapi/pulsoid-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/pulsoid-agentic-access.yml
   - type: DomainSecurity
     url: security/pulsoid-domain-security.yml
   - type: Authentication
