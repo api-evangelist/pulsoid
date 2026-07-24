@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: Pulsoid Features Geometry Dash API
+  description: Pulsoid enables real-time heart rate data transmission from peripherals (BLE heart rate monitors, smartwatches, etc.) to clients. The Pulsoid REST API provides endpoints to read and submit heart rate data, manage widgets, profile, and validate tokens. Real-time streaming is available via WebSocket endpoints.
+  version: '1.0'
+  contact:
+    name: Pulsoid Support
+    url: https://docs.pulsoid.net/
+servers:
+- url: https://dev.pulsoid.net
+  description: Pulsoid API
+security:
+- BearerAuth: []
+tags:
+- name: Geometry Dash
+paths:
+  /api/v1/geometry-dash-mod/configuration:
+    get:
+      summary: Get GD mod configuration
+      operationId: getGdConfig
+      tags:
+      - Geometry Dash
+      responses:
+        '200':
+          description: Configuration
+    post:
+      summary: Update GD mod configuration
+      operationId: updateGdConfig
+      tags:
+      - Geometry Dash
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: OAuth2
+    OAuth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://pulsoid.net/oauth2/authorize
+          scopes:
+            data:heart_rate:read: Read heart rate data
+            data:heart_rate:write: Write heart rate data
+            data:statistics:read: Read heart rate statistics
+            data:room:read: Read room real-time data
+            widgets:read: Read widgets
+            widgets:update: Create or update widgets
+            profile:read: Read profile
+            geometry_dash_mod:configuration:read: Read GD mod config
+            geometry_dash_mod:configuration:write: Update GD mod config
+        authorizationCode:
+          authorizationUrl: https://pulsoid.net/oauth2/authorize
+          tokenUrl: https://pulsoid.net/oauth2/token
+          scopes:
+            data:heart_rate:read: Read heart rate data
+            data:heart_rate:write: Write heart rate data
+            data:statistics:read: Read heart rate statistics
+            widgets:read: Read widgets
+            widgets:update: Create or update widgets
+            profile:read: Read profile
