@@ -5,9 +5,22 @@ description: >-
   to clients. The Pulsoid API allows reading and writing real-time heart rate data, accessing statistics, and managing
   widgets and profile.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pulsoid.png
 tags:
   - Heart Rate
   - Health
@@ -21,25 +34,102 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: pulsoid:pulsoid
-    name: Pulsoid
-    description: >-
-      Pulsoid enables real-time heart rate data transmission from peripherals (BLE heart rate monitors, smartwatches,
-      etc.) to clients. The REST API provides endpoints to validate tokens, read latest heart rate, submit heart rate
-      data, retrieve statistics, manage widgets, and access user profile. Real-time streaming is delivered via WebSocket
-      endpoints.
-    humanURL: https://docs.pulsoid.net/
-    baseURL: https://dev.pulsoid.net
-    tags:
-      - Heart Rate
-      - Wearables
-      - Real-Time
-      - Streaming
-    properties:
-      - type: Documentation
-        url: https://docs.pulsoid.net/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/openapi/pulsoid-openapi.yml
+- aid: pulsoid:pulsoid-features-api
+  name: Pulsoid Features API
+  description: The Features API from Pulsoid — 1 operation(s) for features.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Features
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-features-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-geometry-dash-api
+  name: Pulsoid Geometry Dash API
+  description: The Geometry Dash API from Pulsoid — 1 operation(s) for geometry dash.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Geometry Dash
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-geometry-dash-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-heart-rate-api
+  name: Pulsoid Heart Rate API
+  description: The Heart Rate API from Pulsoid — 2 operation(s) for heart rate.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Heart Rate
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-heart-rate-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-oauth2-api
+  name: Pulsoid OAuth2 API
+  description: The OAuth2 API from Pulsoid — 4 operation(s) for oauth2.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - OAuth2
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-oauth2-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-profile-api
+  name: Pulsoid Profile API
+  description: The Profile API from Pulsoid — 1 operation(s) for profile.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-profile-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-statistics-api
+  name: Pulsoid Statistics API
+  description: The Statistics API from Pulsoid — 1 operation(s) for statistics.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-token-api
+  name: Pulsoid Token API
+  description: The Token API from Pulsoid — 1 operation(s) for token.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-token-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-widgets-api
+  name: Pulsoid Widgets API
+  description: The Widgets API from Pulsoid — 2 operation(s) for widgets.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - Widgets
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-widgets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
 common:
   - type: AgenticAccess
     url: agentic-access/pulsoid-agentic-access.yml
