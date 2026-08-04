@@ -1,0 +1,28 @@
+{
+  "provider": "pulsoid",
+  "sources": [
+    "pulsoid-features-api-openapi.yml",
+    "pulsoid-geometry-dash-api-openapi.yml",
+    "pulsoid-heart-rate-api-openapi.yml",
+    "pulsoid-oauth2-api-openapi.yml",
+    "pulsoid-profile-api-openapi.yml",
+    "pulsoid-statistics-api-openapi.yml",
+    "pulsoid-token-api-openapi.yml",
+    "pulsoid-widgets-api-openapi.yml"
+  ],
+  "outputs": [
+    "pulsoid-features-api-openapi.yml",
+    "pulsoid-geometry-dash-api-openapi.yml",
+    "pulsoid-heart-rate-api-openapi.yml",
+    "pulsoid-oauth2-api-openapi.yml",
+    "pulsoid-profile-api-openapi.yml",
+    "pulsoid-statistics-api-openapi.yml",
+    "pulsoid-token-api-openapi.yml",
+    "pulsoid-widgets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
