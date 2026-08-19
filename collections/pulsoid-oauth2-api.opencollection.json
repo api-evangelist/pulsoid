@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulsoid Features OAuth2 API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OAuth2 authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/authorize"
+          },
+          "docs": "OAuth2 authorize"
+        },
+        {
+          "info": {
+            "name": "OAuth2 token exchange/refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/token"
+          },
+          "docs": "OAuth2 token exchange/refresh"
+        },
+        {
+          "info": {
+            "name": "OAuth2 device authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/device_authorization"
+          },
+          "docs": "OAuth2 device authorization"
+        },
+        {
+          "info": {
+            "name": "Revoke access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/oauth2/revoke"
+          },
+          "docs": "Revoke access token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

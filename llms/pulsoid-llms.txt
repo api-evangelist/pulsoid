@@ -1,0 +1,33 @@
+# Pulsoid API Documentation
+
+## Pulsoid API Documentation
+
+- [Intro](https://docs.pulsoid.net/readme.md)
+- [Access Token Management](https://docs.pulsoid.net/access-token-management.md)
+- [OAuth2 Implicit Grant](https://docs.pulsoid.net/access-token-management/oauth2-implicit-grant.md)
+- [Copy of OAuth2 Implicit Grant](https://docs.pulsoid.net/access-token-management/copy-of-oauth2-implicit-grant.md)
+- [OAuth2 Authorization Code Grant](https://docs.pulsoid.net/access-token-management/oauth2-authorization-code-grant.md)
+- [OAuth2 Client Credentials Grant Type(server token)](https://docs.pulsoid.net/access-token-management/oauth2-client-credentials-grant-type-server-token.md)
+- [Manual Token Issuing](https://docs.pulsoid.net/access-token-management/manual-token-issuing.md)
+- [OAuth 2 Device Authorization Flow](https://docs.pulsoid.net/access-token-management/oauth-2-device-authorization-flow.md)
+- [OAuth2 Refreshing the token](https://docs.pulsoid.net/access-token-management/oauth2-refreshing-the-token.md)
+- [Revoke authorization token](https://docs.pulsoid.net/access-token-management/revoke-authorization-token.md)
+- [Validate authorization token](https://docs.pulsoid.net/access-token-management/validate-authorization-token.md)
+- [List of supported scopes](https://docs.pulsoid.net/access-token-management/list-of-supported-scopes.md)
+- [Read Latest Heart Rate via HTTP](https://docs.pulsoid.net/read-heart-rate/read-latest-heart-rate-via-http.md)
+- [Read Heart Rate via WebSocket](https://docs.pulsoid.net/read-heart-rate/read-heart-rate-via-websocket.md)
+- [Write Heart Rate via HTTP](https://docs.pulsoid.net/read-heart-rate/write-heart-rate-via-http.md)
+- [Page](https://docs.pulsoid.net/read-heart-rate/page.md)
+- [Read Statistics](https://docs.pulsoid.net/read-heart-rate/read-statistics.md)
+- [Widget Entity](https://docs.pulsoid.net/widgets-management/widget-entity.md)
+- [Create Widget](https://docs.pulsoid.net/widgets-management/create-widget.md)
+- [Read Widget](https://docs.pulsoid.net/widgets-management/read-widget.md)
+- [Update Widget](https://docs.pulsoid.net/widgets-management/update-widget.md)
+- [Read Profile Information](https://docs.pulsoid.net/read-profile-information.md)
+- [Error Code Format](https://docs.pulsoid.net/error-code-format.md)
+- [Geometry Dash Mod Configuration Entity](https://docs.pulsoid.net/geometry-dash-mod-management/geometry-dash-mod-configuration-entity.md)
+- [Get Configuration](https://docs.pulsoid.net/geometry-dash-mod-management/get-configuration.md)
+- [Update Configuration](https://docs.pulsoid.net/geometry-dash-mod-management/update-configuration.md)
+- [Feature Status](https://docs.pulsoid.net/misc/feature-status.md)
+- [VRChat World Integration](https://docs.pulsoid.net/vr-chat/vrchat-world-integration.md): VRChat Worlds x Pulsoid
+- [Read Room Data via WebSocket](https://docs.pulsoid.net/rooms/read-room-data-via-websocket.md)

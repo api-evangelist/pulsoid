@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulsoid Features Heart Rate API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Heart Rate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get latest heart rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/data/heart_rate/latest",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the latest heart rate measurement for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Submit heart rate data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submits heart rate data points (write scope required)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

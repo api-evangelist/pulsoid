@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulsoid Features Geometry Dash API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Geometry Dash",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get GD mod configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/geometry-dash-mod/configuration"
+          },
+          "docs": "Get GD mod configuration"
+        },
+        {
+          "info": {
+            "name": "Update GD mod configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/geometry-dash-mod/configuration",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update GD mod configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

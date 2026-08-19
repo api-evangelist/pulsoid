@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulsoid Features Statistics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read heart rate statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/statistics"
+          },
+          "docs": "Returns aggregated BPM statistics over 24h, 7d, and 30d windows."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulsoid Features Widgets API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Widgets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List widgets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.pulsoid.net/api/v1/widgets"
+          },
+          "docs": "Retrieves widgets owned by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Create widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/widgets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new widget."
+        },
+        {
+          "info": {
+            "name": "Update widget configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.pulsoid.net/api/v1/widgets/:widgetId",
+            "params": [
+              {
+                "name": "widgetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates configuration for an existing widget."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
