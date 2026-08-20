@@ -28,6 +28,14 @@ tags:
   - Real-Time
   - Streaming
   - WebSocket
+  - Authentication
+tags_raw:
+  - Heart Rate
+  - Health
+  - Wearables
+  - Real-Time
+  - Streaming
+  - WebSocket
   - OAuth2
 created: '2025-02-17'
 modified: '2026-05-19'
@@ -76,6 +84,8 @@ apis:
   humanURL: https://docs.pulsoid.net/
   baseURL: https://dev.pulsoid.net
   tags:
+  - Authentication
+  tags_raw:
   - OAuth2
   properties:
   - type: OpenAPI
