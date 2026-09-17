@@ -90,20 +90,6 @@ apis:
     url: openapi/pulsoid-heart-rate-api-openapi.yml
   - type: Documentation
     url: https://docs.pulsoid.net/
-- aid: pulsoid:pulsoid-oauth2-api
-  name: Pulsoid OAuth2 API
-  description: The OAuth2 API from Pulsoid — 4 operation(s) for oauth2.
-  humanURL: https://docs.pulsoid.net/
-  baseURL: https://dev.pulsoid.net
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth2
-  properties:
-  - type: OpenAPI
-    url: openapi/pulsoid-oauth2-api-openapi.yml
-  - type: Documentation
-    url: https://docs.pulsoid.net/
 - aid: pulsoid:pulsoid-profile-api
   name: Pulsoid Profile API
   description: The Profile API from Pulsoid — 1 operation(s) for profile.
@@ -150,6 +136,18 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/pulsoid-widgets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.pulsoid.net/
+- aid: pulsoid:pulsoid-oauth2-api
+  name: Pulsoid O Auth2 API
+  description: The OAuth2 API from Pulsoid — 4 operation(s) for oauth2.
+  humanURL: https://docs.pulsoid.net/
+  baseURL: https://dev.pulsoid.net
+  tags:
+  - OAuth2
+  properties:
+  - type: OpenAPI
+    url: openapi/pulsoid-oauth2-api-openapi.yml
   - type: Documentation
     url: https://docs.pulsoid.net/
 common:
