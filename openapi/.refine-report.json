@@ -1,14 +1,7 @@
 {
   "provider": "pulsoid",
   "sources": [
-    "pulsoid-features-api-openapi.yml",
-    "pulsoid-geometry-dash-api-openapi.yml",
-    "pulsoid-heart-rate-api-openapi.yml",
-    "pulsoid-oauth2-api-openapi.yml",
-    "pulsoid-profile-api-openapi.yml",
-    "pulsoid-statistics-api-openapi.yml",
-    "pulsoid-token-api-openapi.yml",
-    "pulsoid-widgets-api-openapi.yml"
+    "_original/pulsoid-openapi.yml"
   ],
   "outputs": [
     "pulsoid-features-api-openapi.yml",
@@ -20,9 +13,25 @@
     "pulsoid-token-api-openapi.yml",
     "pulsoid-widgets-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "pulsoid-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "superseded outputs removed: pulsoid-o-auth2-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 8 total)"
+  ],
+  "skipped": [
+    "pulsoid-features-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-geometry-dash-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-heart-rate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-o-auth2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulsoid-widgets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
