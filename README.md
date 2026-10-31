@@ -1,4 +1,4 @@
-# Pulsoid (pulsoid)
+# Pulsoid
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,65 +66,135 @@
 
 Pulsoid enables real-time heart rate data transmission from peripherals (BLE heart rate monitors, smartwatches, etc.) to clients. The Pulsoid API allows reading and writing real-time heart rate data, accessing statistics, and managing widgets and profile.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/apis.yml)
+**Areas:** Heart Rate · Health · Wearables · Real-Time · Streaming · WebSocket · Authentication
 
-## Scope
+## Pulsoid on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Pulsoid is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pulsoid/](https://apis.io/providers/pulsoid/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- Heart Rate
-- Health
-- Wearables
-- Real-Time
-- Streaming
-- WebSocket
-- OAuth2
+- [Pulsoid Features API](https://apis.io/apis/pulsoid/pulsoid-features-api/) — The Features API from Pulsoid — 1 operation(s) for features.
+- [Pulsoid Geometry Dash API](https://apis.io/apis/pulsoid/pulsoid-geometry-dash-api/) — The Geometry Dash API from Pulsoid — 1 operation(s) for geometry dash.
+- [Pulsoid Heart Rate API](https://apis.io/apis/pulsoid/pulsoid-heart-rate-api/) — The Heart Rate API from Pulsoid — 2 operation(s) for heart rate.
+- [Pulsoid Profile API](https://apis.io/apis/pulsoid/pulsoid-profile-api/) — The Profile API from Pulsoid — 1 operation(s) for profile.
+- [Pulsoid Statistics API](https://apis.io/apis/pulsoid/pulsoid-statistics-api/) — The Statistics API from Pulsoid — 1 operation(s) for statistics.
+- [Pulsoid Token API](https://apis.io/apis/pulsoid/pulsoid-token-api/) — The Token API from Pulsoid — 1 operation(s) for token.
+- [Pulsoid Widgets API](https://apis.io/apis/pulsoid/pulsoid-widgets-api/) — The Widgets API from Pulsoid — 2 operation(s) for widgets.
+- [Pulsoid O Auth2 API](https://apis.io/apis/pulsoid/pulsoid-oauth2-api/) — The OAuth2 API from Pulsoid — 4 operation(s) for oauth2.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-17
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Pulsoid
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Pulsoid enables real-time heart rate data transmission from peripherals (BLE heart rate monitors, smartwatches, etc.) to clients. The REST API provides endpoints to validate tokens, read latest heart rate, submit heart rate data, retrieve statistics, manage widgets, and access user profile. Real-time streaming is delivered via WebSocket endpoints.
+- [Pulsoid Agentic Access](https://apis.io/agentic-access/pulsoid/pulsoid-agentic-access/)
 
-- **Human URL:** [https://docs.pulsoid.net/](https://docs.pulsoid.net/)
-- **Base URL:** `https://dev.pulsoid.net`
+#### Collections (9)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Heart Rate
-- Wearables
-- Real-Time
-- Streaming
+- [Pulsoid API](https://apis.io/collections/pulsoid/open-pulsoid/)
+- [Pulsoid Features API](https://apis.io/collections/pulsoid/open-pulsoid-features-api/)
+- [Pulsoid Features Geometry Dash API](https://apis.io/collections/pulsoid/open-pulsoid-geometry-dash-api/)
+- [Pulsoid Features Heart Rate API](https://apis.io/collections/pulsoid/open-pulsoid-heart-rate-api/)
+- [Pulsoid Features OAuth2 API](https://apis.io/collections/pulsoid/open-pulsoid-oauth2-api/)
+- [Pulsoid Features Profile API](https://apis.io/collections/pulsoid/open-pulsoid-profile-api/)
+- [Pulsoid Features Statistics API](https://apis.io/collections/pulsoid/open-pulsoid-statistics-api/)
+- [Pulsoid Features Token API](https://apis.io/collections/pulsoid/open-pulsoid-token-api/)
+- [Pulsoid Features Widgets API](https://apis.io/collections/pulsoid/open-pulsoid-widgets-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://docs.pulsoid.net/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/pulsoid/refs/heads/main/openapi/pulsoid-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/pulsoid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pulsoid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Pulsoid Authentication](https://apis.io/security/pulsoid/pulsoid-authentication/)
+- [Pulsoid Domain Security](https://apis.io/security/pulsoid/pulsoid-domain-security/)
 
-- [LinkedIn](https://www.linkedin.com/company/pulsoid)
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Pulsoid Scopes](https://apis.io/scopes/pulsoid/pulsoid-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Pulsoid Plans Pricing](https://apis.io/plans/pulsoid/pulsoid-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Pulsoid Rate Limits](https://apis.io/rate-limits/pulsoid/pulsoid-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Pulsoid Finops](https://apis.io/finops/pulsoid/pulsoid-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://pulsoid.net/)
 - [Documentation](https://docs.pulsoid.net/)
-- [Sign Up](https://pulsoid.net/auth/sign_up)
-- [Login](https://pulsoid.net/auth/sign_in)
-- [Authentication](https://docs.pulsoid.net/access-token-and-authentication/about-access-token)
-- [O Auth](https://docs.pulsoid.net/access-token-and-authentication/oauth-authorization-code-grant)
-- [GitHub Organization](https://github.com/Pulsoid)
-- [L L Ms Txt](https://docs.pulsoid.net/llms.txt)
+- [GitHub](https://github.com/Pulsoid)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 44.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 14.5 |
+
+**Agent readiness 20.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.7** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pulsoid/](https://apis.io/providers/pulsoid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pulsoid: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pulsoid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
